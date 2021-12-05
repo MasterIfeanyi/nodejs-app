@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/bootstrap-5.0.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <div class="app">
+
+    
+    
+        <%- include ("header.ejs") %>
+
+
+        <section class="section mx-auto">
+
+            <div class="col-auto my-4">
+                <a href="/add" class="btn btn-sm btn-primary">Add User</a>
+            </div>
+
+            <table class="table table-dark table-striped text-center">
+                <thead>
+                    <tr>
+                        <th>firstname</th>
+                        <th>lastname</th>
+                        <th>address </th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(user => { %>
+                        <tr>
+                            <td><%= user.firstname %></td>
+                            <td><%= user.lastname %></td>
+                            <td><%= user.address %></td>
+                            <td>
+                            <a href='edit/<%= user.id %>' class="btn btn-sm btn-primary my-1">Edit</a>
+                            <a href="delete/<%= user.id %>" class="btn btn-sm btn-danger my-1">Delete</a>                            
+                            </td>
+                        </tr>
+                    <%})%>
+                </tbody>
+            </table>
+        </section>
+
+        <%- include ("footer.ejs") %>
+
+    </div>
+
+</body>
+</html>
