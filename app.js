@@ -9,6 +9,8 @@ const api = require("./api/users");
 const { registerValidation } = require("./controllers/validation");
 
 
+const port = process.env.PORT || 5000;
+
 const url = "https://ifeanyi-fake-server-app.herokuapp.com/users";
 
 //use body-parser
@@ -96,22 +98,5 @@ app.get("/delete/:userId", async (req, res) => {
 
 
 
-// app.post("/", (req, res) => {
-//     console.log(req.body);
-//     // const schema = joi.object().keys({
-//     //     name: joi.string().trim().required(),
-//     //     // password: joi.string().min(5).max(10).required(),
-//     //     email: joi.string().trim().email().required(),
-//     // });
-    
 
-//     const validation = schema.validate(req.body);
-//     res.send(validation);
-
-
-//     // res.status(200).json({msg: "true" });
-//     // return res.json({ success: true });
-//     // return res.send("successfully posted data");
-// })
-
-app.listen(5000, () => console.log("sever is on 5000"));
+app.listen(port, () => console.log("sever is on 5000"));
